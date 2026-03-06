@@ -278,7 +278,7 @@ body {
       </div>
       <span class="icon-label">Site</span>
     </a>
-    <a href="mailto:anacarlasella@gmail.com" class="icon-btn">
+    <a href="/cdn-cgi/l/email-protection#791817181a180b15180a1c151518391e14181015571a1614" class="icon-btn">
       <div class="icon-circle">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8B99A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </div>
@@ -297,22 +297,16 @@ body {
     </div>
   </div>
 
-  <button class="save-btn" onclick="saveContact()">
+  <a href="https://anacarla.vercel.app/api/contato" class="save-btn" target="_blank" rel="noopener noreferrer">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(240,237,230,0.8)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
     <span>Salvar Contato</span>
-  </button>
+  </a>
 
   <p class="tagline">"O projeto não é detalhe — é origem."</p>
 
 </div>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function saveContact() {
   var v = "BEGIN:VCARD\nVERSION:3.0\nFN:Ana Carla Sella\nN:Sella;Ana Carla;;;\nORG:ACS Arquitetura e Urbanismo\nTITLE:Arquiteta & Urbanista\nTEL;TYPE=CELL:+5549998104898\nEMAIL:anacarlasella@gmail.com\nURL:https://anacarla.vercel.app\nNOTE:CAU A289707-5\nEND:VCARD";
   var encoded = "data:text/vcard;charset=utf-8," + encodeURIComponent(v);
-  var a = document.createElement("a");
-  a.href = encoded;
-  a.download = "ANA CARLA | ARQUITETA.vcf";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-}v
+  var a = document.createEle
