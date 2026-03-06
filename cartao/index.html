@@ -23,15 +23,15 @@ body {
   min-height: 100vh;
   background: var(--bg);
   background-image: radial-gradient(ellipse at 50% 30%, rgba(29,77,58,0.5) 0%, transparent 65%);
-  display: flex; align-items: center; justify-content: center;
-  padding: 24px 16px;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 0;
   font-family: 'Jost', sans-serif;
 }
 
 .card {
-  width: 100%; max-width: 340px;
+  width: 100%; max-width: 100%;
   background: var(--card);
-  border-radius: 24px;
+  border-radius: 0;
   overflow: visible;
   box-shadow: 0 40px 100px rgba(0,0,0,0.6);
   animation: rise 0.9s cubic-bezier(0.22,1,0.36,1) both;
@@ -178,7 +178,7 @@ body {
   width: 54px; height: 54px; border-radius: 50%;
   background: linear-gradient(145deg, #1e5a3e, #153D2F);
   box-shadow: 3px 3px 8px rgba(0,0,0,0.3), -1px -1px 4px rgba(255,255,255,0.05);
-  display: flex; align-items: center; justify-content: center;
+  display: flex; align-items: flex-start; justify-content: center;
 }
 .icon-label {
   font-size: 8.5px; font-weight: 300;
@@ -206,7 +206,7 @@ body {
 
 /* ── SAVE ── */
 .save-btn {
-  display: flex; align-items: center; justify-content: center; gap: 10px;
+  display: flex; align-items: flex-start; justify-content: center; gap: 10px;
   margin: 0 20px 18px;
   padding: 15px; background: rgba(200,185,154,0.12); border: 1px solid rgba(200,185,154,0.35);
   border-radius: 12px; border: none; cursor: pointer;
@@ -272,7 +272,7 @@ body {
       </div>
       <span class="icon-label">Site</span>
     </a>
-    <a href="/cdn-cgi/l/email-protection#670609060406150b0614020b0b0627000a060e0b4904080a" class="icon-btn">
+    <a href="mailto:anacarlasella@gmail.com" class="icon-btn">
       <div class="icon-circle">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8B99A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </div>
@@ -299,9 +299,14 @@ body {
   <p class="tagline">"O projeto não é detalhe — é origem."</p>
 
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function saveContact() {
   var v = ["BEGIN:VCARD","VERSION:3.0","FN:Ana Carla Sella","N:Sella;Ana Carla;;;","ORG:ACS Arquitetura e Urbanismo","TITLE:Arquiteta & Urbanista","TEL;TYPE=CELL:+5549998104898","EMAIL:anacarlasella@gmail.com","URL:https://anacarla.vercel.app","NOTE:CAU A289707-5","END:VCARD"].join("\n");
-  var b = new Blob([v], {type:"text/vcard"});
+  var b = new Blob([v], {type: "text/vcard"});
   var u = URL.createObjectURL(b);
-  v
+  var a = document.createElement("a");
+  a.href = u;
+  a.download = "ANA CARLA | ARQUITETA.vcf";
+  a.click();
+  URL.revokeObjectURL(u);
+}v
