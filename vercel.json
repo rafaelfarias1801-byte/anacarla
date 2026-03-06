@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/(.*).vcf",
+      "source": "/AnaCarla.vcf",
       "headers": [
         {
           "key": "Content-Type",
@@ -12,6 +12,12 @@
           "value": "attachment; filename=AnaCarla.vcf"
         }
       ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/AnaCarla.vcf",
+      "destination": "/AnaCarla.vcf"
     }
   ]
 }
