@@ -23,7 +23,7 @@ body {
   min-height: 100vh;
   background: var(--bg);
   background-image: radial-gradient(ellipse at 50% 30%, rgba(29,77,58,0.5) 0%, transparent 65%);
-  display: flex; align-items: flex-start; justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   padding: 0;
   font-family: 'Jost', sans-serif;
 }
@@ -66,11 +66,11 @@ body {
 /* Logo centralizada no topo do arco */
 .arc-logo {
   position: absolute;
-  top: 18px;
+  top: -40px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
-  width: 110px; height: 110px;
+  width: 220px; height: 220px;
   border-radius: 50%;
   overflow: visible;
   border: none;
@@ -182,7 +182,7 @@ body {
   width: 54px; height: 54px; border-radius: 50%;
   background: linear-gradient(145deg, #1e5a3e, #153D2F);
   box-shadow: 3px 3px 8px rgba(0,0,0,0.3), -1px -1px 4px rgba(255,255,255,0.05);
-  display: flex; align-items: flex-start; justify-content: center;
+  display: flex; align-items: center; justify-content: center;
 }
 .icon-label {
   font-size: 8.5px; font-weight: 300;
@@ -212,7 +212,7 @@ body {
 
 /* ── SAVE ── */
 .save-btn {
-  display: flex; align-items: flex-start; justify-content: center; gap: 10px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
   margin: 0 20px 18px;
   padding: 15px; background: rgba(200,185,154,0.12); border: 1px solid rgba(200,185,154,0.35);
   border-radius: 12px; border: none; cursor: pointer;
@@ -307,12 +307,12 @@ body {
 </div>
 <script>
 function saveContact() {
-  var v = ["BEGIN:VCARD","VERSION:3.0","FN:Ana Carla Sella","N:Sella;Ana Carla;;;","ORG:ACS Arquitetura e Urbanismo","TITLE:Arquiteta & Urbanista","TEL;TYPE=CELL:+5549998104898","EMAIL:anacarlasella@gmail.com","URL:https://anacarla.vercel.app","NOTE:CAU A289707-5","END:VCARD"].join("\n");
-  var b = new Blob([v], {type: "text/vcard"});
-  var u = URL.createObjectURL(b);
+  var v = "BEGIN:VCARD\nVERSION:3.0\nFN:Ana Carla Sella\nN:Sella;Ana Carla;;;\nORG:ACS Arquitetura e Urbanismo\nTITLE:Arquiteta & Urbanista\nTEL;TYPE=CELL:+5549998104898\nEMAIL:anacarlasella@gmail.com\nURL:https://anacarla.vercel.app\nNOTE:CAU A289707-5\nEND:VCARD";
+  var encoded = "data:text/vcard;charset=utf-8," + encodeURIComponent(v);
   var a = document.createElement("a");
-  a.href = u;
+  a.href = encoded;
   a.download = "ANA CARLA | ARQUITETA.vcf";
+  document.body.appendChild(a);
   a.click();
-  URL.revokeObjectURL(u);
+  document.body.removeChild(a);
 }v
